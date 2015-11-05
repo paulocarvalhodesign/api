@@ -8,6 +8,7 @@ use Packaged\Api\Response\ApiCallData;
 use Packaged\Api\Response\ResponseBuilder;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 use Symfony\Component\Serializer\Encoder\EncoderInterface;
+use Packaged\Api\Response\Status;
 
 abstract class AbstractApiFormat implements ApiFormatInterface
 {
@@ -27,8 +28,8 @@ abstract class AbstractApiFormat implements ApiFormatInterface
     $result, $statusCode = 200, $statusMessage = '', $type = null
   )
   {
-    $output = new \stdClass();
-    $output->status = new \stdClass();
+    $output = new Status();
+    $output->status = new Status();
     $output->status->code = $statusCode;
     $output->status->message = $statusMessage;
     $output->type = $type ? $type : get_class($result);

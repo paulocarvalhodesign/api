@@ -38,7 +38,7 @@ class ApiCallData
 
   protected function _setStatus($code, $message = '')
   {
-    $this->_status          = new \stdClass();
+    $this->_status          = new Status();
     $this->_status->code    = $code;
     $this->_status->message = $message;
     return $this;
